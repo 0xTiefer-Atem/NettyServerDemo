@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/ajaxfileupload.js"></script>
+    <script>
+        function upload() {
+            $.ajaxFileUpload({
+                type:"POST",
+                secureuri: false, //是否需要安全协议，一般设置为false
+                url:"http://localhost:9999/",
+                fileElementId: 'myfile1', //文件上传域的ID
+                dataType:"json",
+                success: function(result){
+                    alert(result);
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+
+<form name="upform" method="POST" action="http://localhost:9999/" enctype="multipart/form-data"  accept-charset="utf-8">
+    <input type ="file" name="myfile1" id="myfile1"/><br/>
+    <!--<input type ="file" name="myfile1" id="myfile2"/><br/>-->
+    <!--<input type ="file" name="myfile1" id="myfile3"/><br/>-->
+    备注：<input type="text" name="mydata" id="mydata"/><br/>
+    <input type="submit" value="确定"/><br/>
+</form>
+</body>
+</html>
